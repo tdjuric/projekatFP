@@ -18,14 +18,14 @@ import Svg.Attributes as SA
 type alias Model =
     { iteamTitle : String
     , iteamThumbnail : String
-    , iteamPages : Int -- Int  --Maybe Int maybe.... PROMIJENITI NA MAYBE INT
+    , iteamPages : Int 
     , iteamLink : String
     , iteamPublisher : String
-    , iteamTopicId : Int --PROMIJENITI NA MAYBE INT
-    , iteamId : Int --PROMIJENITI NA MAYBE INT
+    , iteamTopicId : Int
+    , iteamId : Int 
     , poruka : String
     , results : List Iteam
-    , resultIteam : Maybe Iteam --MOZDA I NE MORA MAYBE JER SIGURNO DOBIJAMO BOOK KAO REZULTAT AKO NEMA GRESKE, ALI INIT MODEL PRAVI PROBLEM BEZ TOGA....
+    , resultIteam : Maybe Iteam 
     , errorMessage : Maybe String
     , loading : Bool
     }
@@ -128,7 +128,7 @@ update msg model =
         MsgInputTopicIdFieldAsString newTopicId ->
             ( { model | iteamTopicId = Maybe.withDefault 0 (String.toInt newTopicId) }, Cmd.none )
 
-        --JOS JE BOLJE DA SE RAZLOZI NA SLUCAJEVE I POSEBNO OBRADE UMJESTO Maybe.withDefault
+        
         MsgAddIteam ->
             updateAddIteam model
 
@@ -163,7 +163,7 @@ update msg model =
         MsgInputIdFieldAsString newId ->
             ( { model | iteamId = Maybe.withDefault 1 (String.toInt newId) }, Cmd.none )
 
-        --JOS JE BOLJE DA SE RAZLOZI NA SLUCAJEVE I POSEBNO OBRADE UMJESTO Maybe.withDefault
+        
         MsgSuccesfulPost result ->
             let
                 newModel =
@@ -349,9 +349,7 @@ subscriptions model =
 
 
 
---keyPressed : JD.Decoder Msg
---keyPressed =
---    JD.map MsgKeyPressed (JD.field "key" JD.string)
+
 
 
 viewLayout : Model -> Html.Html Msg
@@ -640,7 +638,7 @@ viewGetIteamsLargestButton =
 
 
 
---NE KORISTIM OVAJ, ZBOG HEDERA NEODGOVARAJUCIH ZA MOJ SERVER
+
 
 
 cmdAddIteam : Model -> Cmd Msg
